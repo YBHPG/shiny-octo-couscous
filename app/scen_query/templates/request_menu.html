@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Меню запросов</title>
+</head>
+
+<body>
+    <p>Меню запросов</p>
+    <ul>
+        <li>
+            <a href="{{ url_for('query.get_orders_by_date') }}">Заказы</a>
+        </li>
+        <li>
+            <a href="{{ url_for('query.get_work_by_date') }}">Работы</a>
+        </li>
+        <li>
+            <a href="{{ url_for('index') }}">В главное меню</a>
+        </li>
+    </ul>
+</body>
+
+</html>

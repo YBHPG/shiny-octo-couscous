@@ -1,0 +1,23 @@
+{
+    "admin": [
+        "auth",
+        "query",
+        "update",
+        "cart",
+        ""
+    ],
+    "manager": [
+        "auth",
+        "query",
+        "update",
+        ""
+    ],
+    "client": [
+        "auth",
+        "cart",
+        ""
+    ],
+    "unauthorized": [
+        "auth"
+    ]
+}

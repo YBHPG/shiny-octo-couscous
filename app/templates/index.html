@@ -1,13 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Index page</title>
+    <title>Start page</title>
 </head>
+
 <body>
-    <h1>Main Index</h1>
-    <p>Menu</p>
+    <h1>Главная страница</h1>
+    <p>Меню</p>
+    <ul>
+        <li>
+            <a href="{{ url_for('auth.login_page') }}">Аутентификация</a>
+        </li>
+        <li>
+            <a href="{{ url_for('query.get_bp_index') }}">Меню запросов</a>
+        </li>
+        <li>
+            <a href="{{ url_for('update.print_and_delete') }}">Изменение таблицы заказов</a>
+        </li>
+        <li>
+            <a href="{{ url_for('exit') }}">Выход</a>
+        </li>
+    </ul>
 </body>
+
 </html>
