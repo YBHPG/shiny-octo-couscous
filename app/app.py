@@ -1,6 +1,7 @@
 from scen_query.routes import query_app
 from scen_auth.routes import auth_app
 from scen_update.routes import update_app
+from scen_cart.routes import cart_app
 import json
 from flask import Flask, render_template, session
 
@@ -14,6 +15,7 @@ app.config['ACCESS_QUERY_CONFIG'] = json.load(
 app.register_blueprint(query_app, url_prefix='/query')
 app.register_blueprint(auth_app, url_prefix='/auth')
 app.register_blueprint(update_app, url_prefix='/update')
+app.register_blueprint(cart_app, url_prefix="/cart")
 
 
 @app.route('/')
