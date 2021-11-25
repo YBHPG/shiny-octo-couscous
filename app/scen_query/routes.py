@@ -17,7 +17,7 @@ def get_bp_index():
 
 @query_app.route('/cost')
 @query_permission_decorator
-def get_work_by_date():
+def query1():
     cost = request.args.get('limit')
     if cost is None:
         return render_template('work_index.html')
@@ -32,7 +32,7 @@ def get_work_by_date():
 
 @query_app.route('/date')
 @query_permission_decorator
-def get_orders_by_date():
+def query2():
     begin = request.args.get('begin')
     end = request.args.get('end')
     if begin is None or end is None:
@@ -45,3 +45,33 @@ def get_orders_by_date():
                           'Общая стоимость ремонта'], 'data': result}
 
     return render_template('order_list.html', context=context)
+
+
+@query_app.route('/cost')
+@query_permission_decorator
+def query3():
+    cost = request.args.get('limit')
+    if cost is None:
+        return render_template('work_index.html')
+    sql = provider.get('work.sql', cost=cost)
+    db_config = current_app.config['DB_CONFIG']
+    result = work_with_db(db_config, sql)
+
+    context = {'schema': ['№', 'Наименование', 'Стоимость'], 'data': result}
+
+    return render_template('work_list.html', context=context)
+
+
+@query_app.route('/cost')
+@query_permission_decorator
+def query4():
+    cost = request.args.get('limit')
+    if cost is None:
+        return render_template('work_index.html')
+    sql = provider.get('work.sql', cost=cost)
+    db_config = current_app.config['DB_CONFIG']
+    result = work_with_db(db_config, sql)
+
+    context = {'schema': ['№', 'Наименование', 'Стоимость'], 'data': result}
+
+    return render_template('work_list.html', context=context)
