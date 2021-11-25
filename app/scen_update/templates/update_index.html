@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update table</title>
+</head>
+    <style>
+        body {
+            font-family: Helvetica, sans-serif;
+        }
+        
+        .table-wrapper {
+            margin: 10px 70px 70px;
+            box-shadow: 0px 35px 50px rgba(0, 0, 0, 0.2);
+        }
+
+        .fl-table {
+            border-radius: 5px;
+            font-size: 12px;
+            font-weight: normal;
+            border: none;
+            border-collapse: collapse;
+            width: 100%;
+            max-width: 100%;
+            white-space: nowrap;
+            background-color: white;
+        }
+
+        .fl-table td, .fl-table th {
+            text-align: center;
+            padding: 8px;
+        }
+
+        .fl-table td {
+            border-right: 1px solid #f8f8f8;
+            font-size: 12px;
+        }
+
+        .fl-table thead th {
+            color: #ffffff;
+            background: #4fc3a1;
+        }
+    </style>
+
+<body>
+<div>
+    <a href="{{ url_for('update.add') }}">Добавить товар</a>
+</div>
+<div class="table-wrapper">
+    <table class="fl-table">
+        <thead>
+            <tr>
+                {% for item in heads %}
+                    <th>
+                        {{ item }}
+                    </th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for dictionary in items %}
+                <tr>
+                    <td> {{ dictionary['product_name']}} </td>
+                    <td> {{ dictionary['product_category']}} </td>
+                    <td> {{ dictionary['unit_cost']}} </td>
+                    <td>
+                        <form action="" method="post">
+                            <input type="submit" value="Удалить">
+                            <input type="hidden" name="product_id" value="{{ dictionary['product_id'] }}"">
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+        </tbody>
+    </table>
+</div>
+<div>
+    <ul>
+        <li>
+            <a href="{{ url_for('index') }}">Главное меню</a>
+        </li>
+        <li>
+            <a href="{{ url_for('exit') }}">Выдох из системы</a>
+        </li>
+    </ul>
+</div>
+</body>
+</html>

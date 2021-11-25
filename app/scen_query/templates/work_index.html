@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Заказы</title>
+</head>
+<body>
+
+<form action="" method="get">
+    Введите нижнюю границу стоимости работы.
+    <div>
+        <label for="cost">Начало диапазона:
+            <input type="number" name="limit" min="0" required>
+        </label>
+    </div>
+
+    <input type="submit" value="Получить данные">
+</form>
+<div>
+    <ul>
+        <li>
+            <a href="{{ url_for('index') }}">Назад</a>
+        </li>
+        <li>
+            <a href="{{ url_for('exit') }}">Выход</a>
+        </li>
+    </ul>
+</div>
+</body>
+</html>
