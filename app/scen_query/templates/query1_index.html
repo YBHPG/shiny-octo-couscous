@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Заказы</title>
+</head>
+<body>
+    <div>
+        <form action="" method="get">
+            <label for="month">Введите интересующий вас месяц:
+                <input margin-bottom="5px" type="number" name="month" required>
+            </label><br>
+            <label for="year">Введите интересующий вас год:
+                <input margin-bottom="5px" type="number" name="year" required>
+            </label><br>
+            <label for="user_id">Введите ID пользователя, сумму покупок которого необходимо проверить:
+                <input type="text" name="user_id" required>
+            </label><br>
+            <input margin-bottom="5px" type="submit" value="Получить данные">
+        </form>
+    </div>
+    <div>
+        <ul>
+            <li>
+                <a href="{{ url_for('index') }}">Назад</a>
+            </li>
+            <li>
+                <a href="{{ url_for('exit') }}">Выход</a>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

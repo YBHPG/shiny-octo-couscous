@@ -4,7 +4,7 @@ from flask import session, request, current_app
 
 def group_permission_validation():
     access_config = current_app.config['ACCESS_CONFIG']
-    group_name = session.get('group_name', 'unauthorized')
+    group_name = session.get('user_group_name', 'unauthorized')
     if len(request.endpoint.split('.')) == 1:
         target_app = ""
     else:
@@ -26,7 +26,7 @@ def group_permission_decorator(f):
 
 def query_permission_validation():
     access_config = current_app.config['ACCESS_QUERY_CONFIG']
-    group_name = session.get('group_name', 'unauthorized')
+    group_name = session.get('user_group_name', 'unauthorized')
     if len(request.endpoint.split('.')) == 1:
         target_app = ""
     else:

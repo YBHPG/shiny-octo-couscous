@@ -10,7 +10,3 @@ WHERE total_cost = (
         FROM max_cost
     );
 DROP VIEW max_cost;
-select payment_document_id
-from payment_document
-    join order_row on payment_document.payment_document_id = order_row.payment_document
-group by payment_document_id

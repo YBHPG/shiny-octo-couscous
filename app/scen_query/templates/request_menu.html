@@ -5,20 +5,40 @@
     <meta charset="UTF-8">
     <title>Меню запросов</title>
 </head>
+    <style>
+        h1 {
+            font-family: Helvetica, sans-serif;
+            font-size: 25px;
+        }
 
+        a {
+            font-family: Helvetica, sans-serif;
+            font-weight: bolder;
+        }
+    </style>
 <body>
-    <p>Меню запросов</p>
-    <ul>
-        <li>
-            <a href="{{ url_for('query.get_orders_by_date') }}">Заказы</a>
-        </li>
-        <li>
-            <a href="{{ url_for('query.get_work_by_date') }}">Работы</a>
-        </li>
-        <li>
-            <a href="{{ url_for('index') }}">В главное меню</a>
-        </li>
-    </ul>
+    <div>
+        <h1>Меню запросов</h1>
+        <ul>
+            <li>
+                <a href="{{ url_for('query.query1') }}" align="center" margin-top="20px">Первый запрос</a>
+            </li>
+            <li>
+                <a href="{{ url_for('query.query2') }}">Второй запрос</a>
+            </li>
+            <li>
+                <a href="{{ url_for('query.query3') }}">Третий запрос</a>
+            </li>
+            <li>
+                <a href="{{ url_for('query.query4') }}">Четвёртый запрос</a>
+            </li>
+        </ul>
+    </div>
+        <ul>
+            <li>
+                <a href="{{ url_for('index') }}">В главное меню</a>
+            </li>
+        </ul>
 </body>
 
 </html>

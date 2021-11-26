@@ -1,14 +1,8 @@
-CREATE VIEW p (Document, Sum) AS
-SELECT payment_document_id,
-    sum(payed_sum)
-FROM payment_document
-    JOIN order_row ON payment_document.payment_document_id = order_row.payment_document
-GROUP BY payment_document_id;
-SELECT *
-FROM payment_document
-    LEFT JOIN p ON payment_document.payment_document_id = p.Document
-WHERE Sum = (
-        Select MAX(Sum)
-        FROM p
-    );
-DROP VIEW p;
+select payment_document_id,
+    document_date,
+    sum(payed_sum),
+    count(payed_sum)
+from payment_document
+    join order_row on payment_document.payment_document_id = order_row.payment_document
+where (payment_document_id = 1)
+group by payment_document_id

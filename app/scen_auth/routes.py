@@ -20,7 +20,7 @@ def login_page():
         result = work_with_db(current_app.config['DB_CONFIG'], sql)
 
         if len(result) > 0:
-            session['group_name'] = result[0]['group_name']
+            session['user_group_name'] = result[0]['user_group_name']
             return render_template('success.html')
 
         return render_template('fail.html')

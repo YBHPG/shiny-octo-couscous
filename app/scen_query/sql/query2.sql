@@ -1,10 +1,10 @@
-CREATE VIEW max_cost AS
-SELECT *
-FROM reserved_product_payment.product;
-SELECT *
-FROM max_cost
-WHERE unit_cost = (
-        SELECT max(unit_cost)
-        FROM max_cost
-    );
-drop view max_cost;
+SELECT product_id,
+    product_category,
+    product_name,
+    material,
+    measurement_unit,
+    unit_cost,
+    quantity,
+    reserved_count
+FROM product
+where product_id = '$product_id'
