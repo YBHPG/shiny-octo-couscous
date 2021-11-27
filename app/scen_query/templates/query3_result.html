@@ -7,10 +7,26 @@
 </head>
 
 <style>
-    table,
-    td {
-        border: 1px solid #333;
-        text-align: center;
+    #customers {
+        font-family: Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+    }
+
+    #customers td, #customers th {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+
+    #customers tr:nth-child(even){background-color: #f2f2f2;}
+
+    #customers tr:hover {background-color: #ddd;}
+
+    #customers th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: #04AA6D;
+        color: white;
     }
 </style>
 
@@ -34,7 +50,7 @@
     <div>
         <ul>
             <li>
-                <a href="{{ url_for('query.get_orders_by_date') }}">Назад</a>
+                <a href="{{ url_for('query.query3') }}">Назад</a>
             </li>
             <li>
                 <a href="{{ url_for('index') }}">В главное меню</a>

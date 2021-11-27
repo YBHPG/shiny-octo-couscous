@@ -5,34 +5,26 @@
     <title>Заказы</title>
 </head>
 <body>
-
-<form action="" method="get">
-    Выберите диапазон дат, в которые выполнялись заказы.
     <div>
-        <label for="begin">Начало диапазона:
-            <input type="date" name="begin" required>
-        </label>
+        <form action="" method="get">
+            <label for="month">Введите интересующий вас месяц:
+                <input margin-bottom="5px" type="text" name="month" required>
+            </label><br>
+            <label for="year">Введите интересующий вас год:
+                <input margin-bottom="5px" type="text" name="year" required>
+            </label><br>
+            <input margin-bottom="5px" type="submit" value="Получить данные">
+        </form>
     </div>
-
     <div>
-        <label for="end">Конец диапазона:
-            <input type="date" name="end" required>
-        </label>
+        <ul>
+            <li>
+                <a href="{{ url_for('index') }}">Назад</a>
+            </li>
+            <li>
+                <a href="{{ url_for('exit') }}">Выход</a>
+            </li>
+        </ul>
     </div>
-
-    <input type="submit" value="Получить данные">
-</form>
-
-<div>
-    <ul>
-        <li>
-            <a href="{{ url_for('index') }}">Назад</a>
-        </li>
-        <li>
-            <a href="{{ url_for('exit') }}">Выход</a>
-        </li>
-    </ul>
-</div>
-
 </body>
 </html>

@@ -1,12 +1,5 @@
-CREATE VIEW max_cost AS
-SELECT *
-FROM reserved_product_payment.order
-WHERE month(order_date) = 03
-    AND year(order_date) = 2013;
-SELECT *
-FROM max_cost
-WHERE total_cost = (
-        SELECT max(total_cost)
-        FROM max_cost
-    );
-DROP VIEW max_cost;
+select *
+from reserved_product_payment.order
+where month(order_date) = '$month'
+    and year(order_date) = '$year'
+group by order_id

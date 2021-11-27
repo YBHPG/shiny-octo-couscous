@@ -46,31 +46,33 @@ def query2():
     return render_template('query2_result.html', context=context)
 
 
-@query_app.route('/cost')
+@query_app.route('/query3')
 @query_permission_decorator
 def query3():
-    cost = request.args.get('limit')
-    if cost is None:
+    month = request.args.get('month')
+    year = request.args.get('year')
+    if month is None or year is None:
         return render_template('query3_index.html')
-    sql = provider.get('work.sql', cost=cost)
-    db_config = current_app.config['DB_CONFIG']
-    result = work_with_db(db_config, sql)
-
-    context = {'schema': ['№', 'Наименование', 'Стоимость'], 'data': result}
+    sql = provider.get('query3.sql', month=month, year=year)
+    result = work_with_db(current_app.config['DB_CONFIG'], sql)
+    context = {'schema': ['ID заказа', 'ID пользователя', 'Дата заказа',
+                          'Заказанное количество', 'Общая стоимость заказа',
+                          'Статус', 'ID товара'], 'data': result}
 
     return render_template('query3_result.html', context=context)
 
 
-@query_app.route('/cost')
+@query_app.route('/query4')
 @query_permission_decorator
 def query4():
-    cost = request.args.get('limit')
-    if cost is None:
+    payment_document_id = request.args.get('payment_document_id')
+    if payment_document_id is None:
         return render_template('query4_index.html')
-    sql = provider.get('work.sql', cost=cost)
+    sql = provider.get('query4.sql', payment_document_id=payment_document_id)
     db_config = current_app.config['DB_CONFIG']
     result = work_with_db(db_config, sql)
 
-    context = {'schema': ['№', 'Наименование', 'Стоимость'], 'data': result}
+    context = {'schema': ['ID платёжного документа', 'Дата создания',
+                          'Сумма покупок', 'Количество позиций'], 'data': result}
 
     return render_template('query4_result.html', context=context)
