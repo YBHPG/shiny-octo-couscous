@@ -12,7 +12,7 @@
         "update",
         ""
     ],
-    "client": [
+    "collector": [
         "auth",
         "cart",
         ""

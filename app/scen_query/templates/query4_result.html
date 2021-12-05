@@ -32,10 +32,10 @@
 
 <body>
     <div>
-        <table>
+        <table id="customers">
             <tr>
                 {% for item in context['schema'] %}
-                <td> {{ item }} </td>
+                <th> {{ item }} </th>
                 {% endfor %}
             </tr>
             {% for dictionary in context['data'] %}
