@@ -10,8 +10,6 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret key'
 app.config['DB_CONFIG'] = json.load(open('configs/db.json'))
 app.config['ACCESS_CONFIG'] = json.load(open('configs/access.json'))
-app.config['ACCESS_QUERY_CONFIG'] = json.load(
-    open('configs/access_query.json'))
 
 app.register_blueprint(query_app, url_prefix='/query')
 app.register_blueprint(auth_app, url_prefix='/auth')

@@ -4,6 +4,7 @@ from werkzeug.utils import redirect
 from sql_provider import SQLProvider
 import os
 from .utils import add_to_cart, clean_cart
+from access import login_permission_required
 
 from usedatabase import update_db, work_with_db
 
@@ -14,6 +15,7 @@ provider = SQLProvider(os.path.join(
 
 
 @cart_app.route('/', methods=['GET', 'POST'])
+@login_permission_required
 def cart_index():
     db_config = current_app.config['DB_CONFIG']
     if request.method == 'GET':
@@ -32,7 +34,8 @@ def cart_index():
         return redirect('/cart')
 
 
-@cart_app.route('/buy')   # TODO: сделать доавление в базу покупок
+@cart_app.route('/buy')
+@login_permission_required
 def buy_cart():
     current_cart = session.get('cart', [])
     if current_cart:

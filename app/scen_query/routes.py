@@ -2,7 +2,7 @@ from flask import Blueprint, request, render_template, current_app
 
 from sql_provider import SQLProvider
 from usedatabase import work_with_db
-from access import group_permission_decorator, query_permission_decorator
+from access import login_permission_required
 
 query_app = Blueprint('query', __name__, template_folder='templates')
 
@@ -10,13 +10,13 @@ provider = SQLProvider('scen_query/sql')
 
 
 @query_app.route('/')
-@group_permission_decorator
+@login_permission_required
 def get_bp_index():
     return render_template('request_menu.html')
 
 
 @query_app.route('/query1')
-@query_permission_decorator
+@login_permission_required
 def query1():
     month = request.args.get('month')
     year = request.args.get('year')
@@ -32,7 +32,7 @@ def query1():
 
 
 @query_app.route('/query2')
-@query_permission_decorator
+@login_permission_required
 def query2():
     product_id = request.args.get('product_id')
     if product_id is None:
@@ -47,7 +47,7 @@ def query2():
 
 
 @query_app.route('/query3')
-@query_permission_decorator
+@login_permission_required
 def query3():
     month = request.args.get('month')
     year = request.args.get('year')
@@ -63,7 +63,7 @@ def query3():
 
 
 @query_app.route('/query4')
-@query_permission_decorator
+@login_permission_required
 def query4():
     payment_document_id = request.args.get('payment_document_id')
     if payment_document_id is None:

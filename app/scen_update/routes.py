@@ -2,12 +2,14 @@ from flask import Blueprint, request, render_template, current_app, redirect
 from sql_provider import SQLProvider
 from usedatabase import work_with_db, update_db
 from datetime import datetime
+from access import login_permission_required
 
 update_app = Blueprint('update', __name__, template_folder="templates")
 provider = SQLProvider('scen_update/sql')
 
 
 @update_app.route('/', methods=['GET', 'POST'])
+@login_permission_required
 def print_and_delete():
     if request.method == 'GET':
         items = work_with_db(
@@ -22,6 +24,7 @@ def print_and_delete():
 
 
 @update_app.route('/add', methods=['GET', 'POST'])
+@login_permission_required
 def add():
     if request.method == 'GET':
         return render_template('add.html')

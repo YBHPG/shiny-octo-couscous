@@ -1,23 +1,37 @@
 {
     "admin": [
-        "auth",
-        "query",
-        "update",
-        "cart",
+        "auth.login_page",
+        "cart.cart_index",
+        "cart.buy_cart",
+        "cart.clear_cart_handler",
+        "query.get_bp_index",
+        "query.query1",
+        "query.query2",
+        "query.query3",
+        "query.query4",
+        "update.print_and_delete",
+        "update.add",
         ""
     ],
     "manager": [
-        "auth",
-        "query",
-        "update",
+        "auth.login_page",
+        "query.get_bp_index",
+        "query.query1",
+        "query.query2",
+        "query.query3",
+        "query.query4",
+        "update.print_and_delete",
+        "update.add",
         ""
     ],
     "collector": [
-        "auth",
-        "cart",
+        "auth.login_page",
+        "cart.cart_index",
+        "cart.buy_cart",
+        "cart.clear_cart_handler",
         ""
     ],
     "unauthorized": [
-        "auth"
+        "auth.login_page"
     ]
 }

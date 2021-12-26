@@ -1,6 +1,7 @@
 from flask import Blueprint, session, render_template, request, current_app
 from sql_provider import SQLProvider
 from usedatabase import work_with_db
+from access import login_permission_required
 
 auth_app = Blueprint('auth', __name__, template_folder='templates',
                      static_folder='static')
@@ -9,6 +10,7 @@ provider = SQLProvider('scen_auth/sql')
 
 
 @auth_app.route('/login', methods=['GET', 'POST'])
+@login_permission_required
 def login_page():
     if request.method == 'GET':
         return render_template('login.html')
