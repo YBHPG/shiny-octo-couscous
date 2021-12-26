@@ -3,33 +3,34 @@
 
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles_query_input.css') }}">
     <title>Заказы</title>
 </head>
 
 <body>
-
-    <form action="" method="get">
-        <div>
-            <label for="cost">Введите ID товара:
-                <input type="text" name="product_id" required>
-            </label>
+    <div class="box">
+        <div class="container">
+            <div class="form-div">
+                <form action="" method="get">
+                    <div class="inputBox">
+                        <div class="label-padding">
+                            <label for="cost">Введите ID товара:</label>
+                        </div>
+                        <input type="text" name="product_id" required>
+                    </div>
+                    <div class="inputBox">
+                        <input type="submit" value="Получить данные">
+                    </div>
+                </form>
+            </div>
         </div>
-
-        <input type="submit" value="Получить данные">
-    </form>
-    <div>
-        <ul>
-            <li>
-                <a href="{{ url_for('query.get_bp_index') }}">Меню запросов</a>
-            </li>
-            <li>
-                <a href="{{ url_for('index') }}">Главное меню</a>
-            </li>
-            <li>
-                <a href="{{ url_for('exit') }}">Выход</a>
-            </li>
-        </ul>
     </div>
+    <div align="center">
+        <a class="two" href="{{ url_for('query.get_bp_index') }}">Меню запросов</a>
+        <a class="three" href="{{ url_for('index') }}">Главное меню</a>
+        <a class="four" href="{{ url_for('exit') }}">Выход</a>
+    </div>
+
 </body>
 
 </html>

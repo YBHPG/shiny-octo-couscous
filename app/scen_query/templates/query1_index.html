@@ -3,36 +3,47 @@
 
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles_query_input.css') }}">
     <title>Заказы</title>
 </head>
 
 <body>
-    <div>
-        <form action="" method="get">
-            <label for="month">Введите интересующий вас месяц:
-                <input margin-bottom="5px" type="number" name="month" required>
-            </label><br>
-            <label for="year">Введите интересующий вас год:
-                <input margin-bottom="5px" type="number" name="year" required>
-            </label><br>
-            <label for="user_id">Введите ID пользователя, сумму покупок которого необходимо проверить:
-                <input type="text" name="user_id" required>
-            </label><br>
-            <input margin-bottom="5px" type="submit" value="Получить данные">
-        </form>
+    <div class="box">
+        <div class="container">
+            <div class="form-div">
+                <form action="" method="get">
+                    <div class="inputBox">
+                        <div class="label-padding">
+                            <label for="month">Введите интересующий вас месяц:</label>
+                        </div>
+                        <input margin-bottom="5px" type="number" name="month" required>
+                    </div>
+                    <br>
+                    <div class="inputBox">
+                        <div class="label-padding">
+                            <label for="year">Введите интересующий вас год:</label>
+                        </div>
+                        <input margin-bottom="5px" type="number" name="year" required>
+                    </div>
+                    <br>
+                    <div class="inputBox">
+                        <div class="label-padding">
+                            <label for="user_id">Введите ID пользователя, сумму покупок которого необходимо
+                                проверить:</label>
+                        </div>
+                        <input type="text" name="user_id" required>
+                    </div>
+                    <div class="inputBox">
+                        <input class="one" margin-bottom="5px" type="submit" value="Получить данные">
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
-    <div>
-        <ul>
-            <li>
-                <a href="{{ url_for('query.get_bp_index') }}">Меню запросов</a>
-            </li>
-            <li>
-                <a href="{{ url_for('index') }}">Главное меню</a>
-            </li>
-            <li>
-                <a href="{{ url_for('exit') }}">Выход</a>
-            </li>
-        </ul>
+    <div align="center">
+        <a class="two" href="{{ url_for('query.get_bp_index') }}">Меню запросов</a>
+        <a class="three" href="{{ url_for('index') }}">Главное меню</a>
+        <a class="four" href="{{ url_for('exit') }}">Выход</a>
     </div>
 </body>
 
