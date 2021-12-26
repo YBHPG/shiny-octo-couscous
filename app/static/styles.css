@@ -1,0 +1,84 @@
+body {
+  height: 100%;
+  background: linear-gradient(to right, #20002c, #cbb4d4);
+}
+
+h1 {
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  padding-bottom: 30px;
+}
+
+p,
+p-text {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+}
+
+a {
+  font-family: Helvetica, sans-serif;
+  position: relative;
+  display: inline-block;
+  padding: 8px 20px;
+  margin-top: 15px;
+  background-color: #fff;
+  color: black;
+  border-radius: 20px;
+  text-decoration: none;
+}
+
+.one {
+  background-image: linear-gradient(45deg, #000046, #1cb5e0);
+  color: white;
+}
+
+.two {
+  background-image: linear-gradient(45deg, #007991, #78ffd6);
+  color: white;
+}
+
+.three {
+  background-image: linear-gradient(45deg, #56ccf2, #2f80ed);
+  color: white;
+}
+
+.four {
+  background-image: linear-gradient(45deg, #f2994a, #f2c94c);
+  color: white;
+}
+
+.five {
+  background-image: linear-gradient(45deg, #d66d75, #e29587);
+  color: white;
+}
+
+.six {
+  background-image: linear-gradient(45deg, #200122, #6f0000);
+  color: white;
+}
+
+.card {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  margin: 280px auto;
+  box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  border-left: 1px solid rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+.card .content {
+  padding: 20px;
+  text-align: center;
+  transition: 0.5s;
+}

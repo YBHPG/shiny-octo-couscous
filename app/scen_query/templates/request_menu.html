@@ -4,21 +4,26 @@
 <head>
     <meta charset="UTF-8">
     <title>Меню запросов</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles_query_menu.css') }}">
 </head>
 
 <body>
-    <p>Меню запросов</p>
-    <ul>
-        <li>
-            <a href="{{ url_for('query.get_orders_by_date') }}">Заказы</a>
-        </li>
-        <li>
-            <a href="{{ url_for('query.get_work_by_date') }}">Работы</a>
-        </li>
-        <li>
-            <a href="{{ url_for('index') }}">В главное меню</a>
-        </li>
-    </ul>
+    <div class="card">
+        <div class="content">
+            <h1>Меню запросов</h1>
+            <p class="gradient-text">Выберите один из запросов для продолжения работы:</p>
+            <a class="one" href="{{ url_for('query.query1') }}" align="center" margin-top="20px">Общая сумма покупок в
+                заданный месяц</a>
+            <a class="two" href="{{ url_for('query.query2') }}">Все сведения о товаре</a>
+            <a class="three" href="{{ url_for('query.query3') }}">Все данные о заказах в заданынй месяц</a>
+            <a class="four" href="{{ url_for('query.query4') }}">Данные об указанном платёжном документе</a>
+            <div class="content">
+                <a class="five" href="{{ url_for('index') }}">Главное меню</a>
+                <a class="six" href="{{ url_for('exit') }}">Выход</a>
+            </div>
+        </div>
+    </div>
+
 </body>
 
 </html>

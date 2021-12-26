@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Список заказов</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles_query_result.css') }}">
+</head>
+
+<body>
+    <div>
+        <table align="center" id="customers">
+            <thead>
+                {% for item in context['schema'] %}
+                <th> {{ item }} </th>
+                {% endfor %}
+            </thead>
+            <tbody>
+                {% for dictionary in context['data'] %}
+                <tr>
+                    {% for value in dictionary.values() %}
+                    <td> {{ value }} </td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div align="center">
+            <a class="one" href="{{ url_for('query.query1') }}">Назад</a>
+            <a class="two" href="{{ url_for('query.get_bp_index') }}">Меню запросов</a>
+            <a class="three" href="{{ url_for('index') }}">Главное меню</a>
+            <a class="four" href="{{ url_for('exit') }}">Выход</a>
+        </div>
+    </div>
+</body>
+
+</html>
