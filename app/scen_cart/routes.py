@@ -1,3 +1,4 @@
+from datetime import datetime
 from flask import Blueprint, render_template, request, session, current_app
 from werkzeug.utils import redirect
 from sql_provider import SQLProvider
@@ -27,7 +28,7 @@ def cart_index():
         items = work_with_db(db_config, sql)
         if not items:
             return 'Items not fount'
-        add_to_cart(items)
+        add_to_cart(items[0])
         return redirect('/cart')
 
 
@@ -36,12 +37,16 @@ def buy_cart():
     current_cart = session.get('cart', [])
     if current_cart:
         for product in current_cart:
-            sql = provider.get('insert_cart.sql', cart_product_id=product['product_id'],
-                               cart_product_category=product['product_category'],
-                               cart_product_name=product['product_name'],
-                               cart_unit_cost=product['unit_cost'])
+            total_cost = int(product['unit_cost']) * int(product['number'])
+            sql = provider.get('insert_cart.sql', product_code=product['product_id'],
+                               ordered_number=product['number'],
+                               order_date=datetime.now(),
+                               user_id=session['user_id'],
+                               cart_amount=product['number'],
+                               total_cost=total_cost)
             update_db(current_app.config['DB_CONFIG'], sql)
             print('SQL:' + str(sql))
+            clean_cart()
         return render_template('buy_success.html')
     return redirect('/cart')
 

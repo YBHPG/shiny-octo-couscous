@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add item to table</title>
+</head>
+<body>
+    <form action="" method="post">
+        <div>
+            <div>
+                <label for="product_name"></label>
+            </div>
+            <input placeholder="{{ product_name }}" type="text" id="product_name" name="product_name" required>
+        </div>
+        <br>
+        <div>
+            <div>
+                <label for="product_category">Категория товара</label>
+            </div>
+            <input placeholder="{{ product_category }}" type="text" id="product_category" name="product_category" required>
+        </div>
+        <br>
+        <div>
+            <div>
+                <label for="unit_cost">Стоимтость</label>
+            </div>
+            <input placeholder="{{ unit_cost }}" type="text" id="unit_cost" name="unit_cost" required>
+        </div>
+        <input type="submit" value="Добавить" name="action">
+        <input type="hidden" value="{{ product_id }}">
+    </form>
+</body>
+</html>

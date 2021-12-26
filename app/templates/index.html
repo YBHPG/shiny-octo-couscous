@@ -4,36 +4,25 @@
 <head>
     <meta charset="UTF-8">
     <title>Start page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
-<style>
-    a {
-        font-family: Helvetica, sans-serif;
-    }
 
-    h1, p {
-        font-family: Arial, Helvetica, sans-serif;
-    }
-</style>
 <body>
-    <h1>Главная страница</h1>
-    <p>Меню</p>
-    <ul>
-        <li>
-            <a href="{{ url_for('auth.login_page') }}">Аутентификация</a>
-        </li>
-        <li>
-            <a href="{{ url_for('query.get_bp_index') }}">Меню запросов</a>
-        </li>
-        <li>
-            <a href="{{ url_for('update.print_and_delete') }}">Изменение таблицы заказов</a>
-        </li>
-        <li>
-            <a href="{{ url_for('cart.cart_index') }}">Корзина</a>
-        </li>
-        <li>
-            <a href="{{ url_for('exit') }}">Выход</a>
-        </li>
-    </ul>
+    <div class="card">
+        <div class="content">
+            <h1>Главная страница</h1>
+            {% if (session['user_group_name']) %}
+            <p class="p-text">Здравствуйте, {{ session['user_group_name'] }}!</p>
+            {% else %}
+            <p class="p-text">Здравствуйте, неизвестный пользователь!</p>
+            {% endif %}
+            <a class="one" href="{{ url_for('auth.login_page') }}">Аутентификация</a>
+            <a class="two" href="{{ url_for('query.get_bp_index') }}">Меню запросов</a>
+            <a class="three" href="{{ url_for('update.print_and_delete') }}">Изменение таблицы заказов</a>
+            <a class="four" href="{{ url_for('cart.cart_index') }}">Корзина</a>
+            <a class="five" href="{{ url_for('exit') }}">Выход</a>
+        </div>
+    </div>
 </body>
 
 </html>

@@ -3,14 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles_auth.css') }}" >
 </head>
 <body>
-    <form action="" method="post">
-        <input type="text" name="login" placeholder="Логин" required>
-        <input type="password" name="password" placeholder="Пароль" required>
-        <input type="submit" value="Вход">
-    </form>
+    <div class="box">
+        <div class="container">
+            <div class="form-div">
+                <h2>Вход в систему</h2>
+                <form action="" method="post">
+                    <div class="inputBox">
+                        <input type="text" name="login" placeholder="Логин" required>
+                    </div>
+                    <div class="inputBox">
+                        <input type="password" name="password" placeholder="Пароль" required>
+                    </div>
+                    <div class="inputBox">
+                        <input type="submit" value="Вход">
+                    </div>
+                </form>
+            </div>
+        </div>
+        <a href="{{ url_for('index') }}">В главное меню</a>
+    </div>
 
-<a href="{{ url_for('index') }}">В главное меню</a>
 </body>
 </html>

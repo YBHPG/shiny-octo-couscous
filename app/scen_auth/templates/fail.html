@@ -1,13 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Ошибка</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles_auth.css') }}">
 </head>
-<body>
-    Ошибка. Неверно введен логин или пароль.
 
+<body>
+    <div class="box">
+        <div class="container">
+            <p>Ошибка. Неверно введен логин или пароль.</p>
+        </div>
+        <a href="{{ url_for('index') }}">В главное меню</a>
+    </div>
     <br>
-    <a href="{{ url_for('index') }}">В главное меню</a>
 </body>
+
 </html>

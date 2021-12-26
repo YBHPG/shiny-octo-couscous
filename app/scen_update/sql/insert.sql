@@ -1,6 +1,12 @@
-insert `product`(product_category, product_name, unit_cost)
+insert product(
+        product_name,
+        product_category,
+        unit_cost,
+        quantity_fix_date
+    )
 values (
-        '$product_category',
         '$product_name',
-        '$unit_cost'
+        '$product_category',
+        '$unit_cost',
+        '$quantity_fix_date'
     )

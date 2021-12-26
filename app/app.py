@@ -1,9 +1,10 @@
+from flask import Flask, render_template, session
 from scen_query.routes import query_app
 from scen_auth.routes import auth_app
 from scen_update.routes import update_app
 from scen_cart.routes import cart_app
 import json
-from flask import Flask, render_template, session
+
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret key'

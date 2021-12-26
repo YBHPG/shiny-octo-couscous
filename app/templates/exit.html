@@ -1,20 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exit page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles_auth.css') }}">
 </head>
-<style>
-    h2, a {
-        font-family: Helvetica, sans-serif;
-    }
-</style>
+
 <body>
-    <h2>Завершение работы</h2>
-    <div>
-        <a style="margin-left: 10px;" href="{{ url_for('index') }}">Главное меню</a>
+    <div class="box">
+        <div class="container">
+            <p>До свидания! Увидимся завтра!</p>
+        </div>
+        <a href="{{ url_for('index') }}">Главное меню</a>
     </div>
-    </body>
+
+</body>
+
 </html>

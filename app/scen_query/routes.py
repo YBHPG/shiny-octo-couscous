@@ -28,7 +28,7 @@ def query1():
     print(result)
     context = {'schema': ['ID Пользователя',
                           'Общая сумма покупок'], 'data': result}
-    return render_template('query1_result.html', context=context)
+    return render_template('query_result.html', context=context)
 
 
 @query_app.route('/query2')
@@ -43,7 +43,7 @@ def query2():
                           'Материал', 'Единица измерения', 'Стоимость единицы товара',
                           'Количество на складе', 'Забронированное количество'], 'data': result}
 
-    return render_template('query2_result.html', context=context)
+    return render_template('query_result.html', context=context)
 
 
 @query_app.route('/query3')
@@ -59,7 +59,7 @@ def query3():
                           'Заказанное количество', 'Общая стоимость заказа',
                           'Статус', 'ID товара'], 'data': result}
 
-    return render_template('query3_result.html', context=context)
+    return render_template('query_result.html', context=context)
 
 
 @query_app.route('/query4')
@@ -75,4 +75,4 @@ def query4():
     context = {'schema': ['ID платёжного документа', 'Дата создания',
                           'Сумма покупок', 'Количество позиций'], 'data': result}
 
-    return render_template('query4_result.html', context=context)
+    return render_template('query_result.html', context=context)

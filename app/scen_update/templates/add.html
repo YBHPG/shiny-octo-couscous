@@ -1,34 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles_auth.css') }}">
     <title>Add item to table</title>
 </head>
+
 <body>
-    <form action="" method="post">
-        <div>
-            <div>
-                <label for="product_name">Название товара</label>
+    <div class="box">
+        <div class="container">
+            <div class="form-div">
+                <form action="" method="post">
+                    <div class="inputBox">
+                        <div class="label-padding">
+                            <label for="product_name">Название товара</label>
+                        </div>
+                        <input type="text" id="product_name" name="product_name" required>
+                    </div>
+                    <br>
+                    <div class="inputBox">
+                        <div class="label-padding">
+                            <label for="product_category">Категория товара</label>
+                        </div>
+                        <input type="text" id="product_category" name="product_category" required>
+                    </div>
+                    <br>
+                    <div class="inputBox">
+                        <div class="label-padding">
+                            <label for="unit_cost">Стоимость</label>
+                        </div>
+                        <input type="text" id="unit_cost" name="unit_cost" required>
+                    </div>
+                    <div class="inputBox">
+                        <input type="submit" value="Добавить">
+                    </div>
+                </form>
             </div>
-            <input type="text" id="product_name" name="product_name" required>
         </div>
-        <br>
-        <div>
-            <div>
-                <label for="product_category">Категория товара</label>
-            </div>
-            <input type="text" id="product_category" name="product_category" required>
-        </div>
-        <br>
-        <div>
-            <div>
-                <label for="unit_cost">Стоимтость</label>
-            </div>
-            <input type="text" id="unit_cost" name="unit_cost" required>
-        </div>
-        <input type="submit" value="Добавить">
-    </form>
+    </div>
 </body>
+
 </html>

@@ -1,23 +1,30 @@
-{% macro render_item(item, show_form=False) %}
-<div style="border-style: solid; border-color: #b5e5f7; margin: 5px;">
-    <p>
-        <span>
-            Название: {{ item['product_name'] }}
-        </span><br>
-        <span>
-            Название: {{ item['product_category'] }}
-        </span><br>
-        <span>
-            Название: {{ item['unit_cost'] }}
-        </span><br>
-    </p>
-    {% if show_form %}
+{% macro render_item(item, count, show_form=False) %}
+<div class="card">
+    <div class="content">
+        <p>
+            <span>
+                Название: {{ item['product_name'] }}
+            </span><br>
+            <span>
+                Категория: {{ item['product_category'] }}
+            </span><br>
+            <span>
+                Стоимость за единицу: {{ item['unit_cost'] }}
+            </span><br>
+            {% if not show_form %}
+            <span>
+                Количество: {{ item['number'] }}
+            </span>
+            {% endif %}
+        </p>
+        {% if show_form %}
         <div>
             <form action="" method="post">
-                <input type="submit" value="Добавить">
+                <input class="five" type="submit" value="Добавить">
                 <input type="hidden" name="product_id" value="{{ item['product_id'] }}">
             </form>
         </div>
-    {% endif %}
+        {% endif %}
+    </div>
 </div>
 {% endmacro %}

@@ -1,12 +1,16 @@
-insert `cart_history`(
-        cart_product_id,
-        cart_product_category,
-        cart_product_name,
-        cart_unit_cost
+insert `order`(
+        user_id,
+        order_date,
+        ordered_number,
+        total_cost,
+        status,
+        product_code
     )
 values(
-        '$cart_product_id',
-        '$cart_product_category',
-        '$cart_product_name',
-        '$cart_unit_cost'
+        '$user_id',
+        '$order_date',
+        '$ordered_number',
+        '$total_cost',
+        '1',
+        '$product_code'
     )

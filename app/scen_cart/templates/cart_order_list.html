@@ -1,43 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles_cart.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+        crossorigin="anonymous"></script>
     <title>cart</title>
 </head>
+
 <body>
 
+    <div class="grid-row-one" align="center">
+        <a class="one" href="{{ url_for('index') }}">Главное меню</a>
+        <a class="two" href="{{ url_for('exit') }}">Выход</a>
+    </div>
     {% import 'cart_utils.html' as utils %}
-    <div class="container">
-        <div class="row">
-            <div class="col-md-5">
-                <h2>Список товаров</h2>
-                {% if items %}
-                {% for item in items %}
-                    {{ utils.render_item(item, show_form=True) }}
-                {% endfor %}
-                {% else %}
-                    <p>Нет доступных товаров</p>
-                {% endif %}
-            </div>
-            <div class="col-md-5">
-                <h2>Ваша корзина</h2>
-                {% if cart %}
-                {% for item in cart %}
-                    {{ utils.render_item(item, show_form=False) }}
-                {% endfor %}
-                <div class="coll-md-2" align="left">
-                    <a href="{{ url_for('cart.buy_cart') }}">Купить</a>
-                    <a href="clear">Очистить корзину</a>
-                </div>
-                {% else %}
-                    <p>Корзина пуста</p>
-                {% endif %}
-            </div>
+    <div class="grid-one" align="center">
+        <h2>Список товаров</h2>
+        {% if items %}
+        {% for item in items %}
+        {{ utils.render_item(item, show_form=True) }}
+        {% endfor %}
+        {% else %}
+        <p>Нет доступных товаров</p>
+        {% endif %}
+    </div>
+    <div class="grid-two" align="center">
+        <h2>Ваша корзина</h2>
+        {% if cart %}
+        {% for item in cart %}
+        {{ utils.render_item(item, show_form=False) }}
+        {% endfor %}
+        <div align="center">
+            <a class="three" href="{{ url_for('cart.buy_cart') }}">Купить</a>
+            <a class="four" href="clear">Очистить корзину</a>
         </div>
+        {% else %}
+        <p>Корзина пуста</p>
+        {% endif %}
+    </div>
+    </div>
     </div>
 </body>
+
 </html>

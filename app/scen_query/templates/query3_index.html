@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Заказы</title>
 </head>
+
 <body>
     <div>
         <form action="" method="get">
@@ -19,7 +21,10 @@
     <div>
         <ul>
             <li>
-                <a href="{{ url_for('index') }}">Назад</a>
+                <a href="{{ url_for('query.get_bp_index') }}">Меню запросов</a>
+            </li>
+            <li>
+                <a href="{{ url_for('index') }}">Главное меню</a>
             </li>
             <li>
                 <a href="{{ url_for('exit') }}">Выход</a>
@@ -27,4 +32,5 @@
         </ul>
     </div>
 </body>
+
 </html>
