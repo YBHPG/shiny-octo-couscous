@@ -19,5 +19,5 @@ def login_permission_required(f):
     def wrapper(*args, **kwargs):
         if group_permission_validation(current_app.config['ACCESS_CONFIG'], session):
             return f(*args, **kwargs)
-        return 'Доступ запрещён'
+        return render_template('no_access.html')
     return wrapper
